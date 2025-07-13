@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sobre Nosotros | Milo Pet Shop</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <img src="assets/logo.png" alt="Logo Milo Pet Shop" class="logo" />
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="turnos.html">Turnos</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="historia-container">
+      <div class="historia-texto">
+        <p id="historia-maquina"></p>
+      </div>
+    </section>
+
+    <!-- Carrusel de imágenes del local -->
+    <div class="carrusel-container">
+      <div class="carrusel">
+        <button id="prevBtn">&#8249;</button>
+        <img id="carrusel-img" src="assets/negocio1.jpg" alt="Local Milo Pet Shop" />
+        <button id="nextBtn">&#8250;</button>
+      </div>
+    </div>
+
+    <!-- Formulario de reseñas -->
+    <section>
+      <h2>Dejanos tu reseña</h2>
+      <form id="reseña-form">
+        <input type="text" id="nombre-reseña" placeholder="Tu nombre" required />
+        <textarea id="comentario-reseña" placeholder="Tu comentario" required></textarea>
+        <input type="number" id="estrellas" min="1" max="5" placeholder="Estrellas (1 a 5)" required />
+        <button type="submit">Enviar Reseña</button>
+      </form>
+
+      <div id="lista-reseñas" class="reseñas-grid"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Milo Pet Shop</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const texto = `🧡 Una historia de amor que lo cambió todo.
+      Milo Pet Shop nació del amor de una madre y un hijo: Laura y Mariano. Pero la verdadera inspiración… vino de un ser muy especial: Milo. 
+      Una tarde cualquiera, la vida puso a Milo en el camino de nuestra familia. Era solo un cachorro de seis meses, sucio, asustado, con la mirada apagada y el cuerpo frágil. Estaba solo. Martín, hermano de Mariano y Luciano e hijo de Laura, lo llevó a casa con la intención de cuidarlo por unos días, como un hogar de paso. Pero apenas cruzó la puerta, nos cambió la vida para siempre. Con el tiempo, sus ojos volvieron a brillar, su cola empezó a moverse… y nuestro corazón, a sanar con él. Nos dimos cuenta de que no lo habíamos rescatado solo a él… también él nos había rescatado a nosotros. Ese día entendimos que el amor por los animales no es un negocio: es una misión, un compromiso, una familia. 
+      Así nació este lugar: Milo Pet Shop. Un espacio hecho con el corazón, donde cada mascota importa, donde cada cliente es parte de nuestra historia, y donde cada producto y servicio está pensado para darles a ellos lo mejor, como hicimos con Milo. 
+      Gracias por confiar en nosotros. Gracias por ser parte de esta familia.`;
+
+      const contenedor = document.getElementById("historia-maquina");
+      let i = 0;
+      function escribir() {
+        if (i < texto.length) {
+          contenedor.innerHTML += texto.charAt(i);
+          i++;
+          setTimeout(escribir, 25);
+        }
+      }
+      escribir();
+    });
+  </script>
+</body>
+</html>
